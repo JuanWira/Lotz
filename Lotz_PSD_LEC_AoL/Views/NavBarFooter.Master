@@ -1,0 +1,192 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NavBarFooter.master.cs" Inherits="Lotz_PSD_LEC_AoL.Views.NavBarFooter" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="apple-touch-icon" href="~/assets/img/Lotz_Logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.ico"/>
+
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/assets/css/templatemo.css"/>
+    <link rel="stylesheet" href="~/assets/css/custom.css"/>
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap"/>
+    <link rel="stylesheet" href="~/assets/css/fontawesome.min.css"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .margin{
+            padding-left:8px;
+        }
+
+        nav{
+            background-color:#E8DFE0 !important; 
+        }
+
+        .copy{
+            color:aliceblue !important;
+        }
+        .pointer{
+            cursor:pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        function imageClicked(ClothID) {
+            window.location.href = "SinglePage.aspx?ClothID=" + ClothID;
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
+            <div class="container d-flex justify-content-between align-items-center">
+                <asp:ImageButton ID="logo" CssClass="navbar-brand text-success logo h1 align-self-center" runat="server" ImageUrl="~/assets/img/Lotz_Logo.png" OnClick="logo_Click"/>
+                <asp:Button ID="Button1" CssClass="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" runat="server"/>
+                <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                   <div class="flex-fill">
+                        <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                            <% if (role == "A"){ %>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="home" OnClick="home_Click" runat="server">Home</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton12" OnClick="shop_Click" runat="server">Shop</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="women" OnClick="women_Click" runat="server">Women</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="men" OnClick="men_Click" runat="server">Men</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="insert" OnClick="insert_Click" runat="server">Insert New Cloth</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton15" OnClick="deleteCloth_Click" runat="server">Delete Cloth</asp:LinkButton></a>
+                                </li>
+                            <%} %>
+                            <% else if (role == "C"){ %>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton1" OnClick="home_Click" runat="server">Home</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton13" OnClick="shop_Click" runat="server">Shop</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton2" OnClick="women_Click" runat="server">Women</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton3" OnClick="men_Click" runat="server">Men</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton4" OnClick="about_Click" runat="server">About</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton11" OnClick="history_Click" runat="server">History</asp:LinkButton></a>
+                                </li>
+                            <%} %>
+                            <% else{ %>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton5" OnClick="home_Click" runat="server">Home</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton14" OnClick="shop_Click" runat="server">Shop</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton6" OnClick="women_Click" runat="server">Women</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton7" OnClick="men_Click" runat="server">Men</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton8" OnClick="about_Click" runat="server">About</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton9" OnClick="reg_Click" runat="server">Register</asp:LinkButton></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a><asp:LinkButton CssClass="nav-link" ID="LinkButton10" OnClick="login_Click" runat="server">Login</asp:LinkButton></a>
+                                </li>
+                            <%} %>
+                        </ul>
+                    </div>
+                    <div class="navbar align-self-center d-flex">
+                        <div class="input-group-text">
+                            <asp:TextBox ID="search" CssClass="form-control" Placeholder="Search..." runat="server"></asp:TextBox>
+                            <a class="nav-icon d-none d-lg-inline" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                                <i>
+                                    <asp:ImageButton ID="searchIcon" runat="server" CssClass="fa fa-fw fa-search text-dark mr-2 margin" ImageUrl="~/assets/img/search_icon.png" OnClick="searchBtn_Click"/>
+                                </i>
+                            </a>
+                        </div>
+                        <a class="nav-icon position-relative text-decoration-none" href="CartPage.aspx">
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1" onclick="cart_Click"></i>
+                            <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        </a>
+                        <%if (role != "G")
+                            { %>
+                            <a>
+                                <asp:LinkButton CssClass="nav-icon position-relative text-decoration-non" ID="logout" OnClick="logout_Click" runat="server">Logout</asp:LinkButton>
+                            </a>
+                        <%} %>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer class="bg-dark" id="tempaltemo_footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-success border-bottom pb-3 border-light logo">Company Info</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li>
+                                <i><asp:Image CssClass="fa fa-phone fa-fw" ID="Image2" ImageUrl="../assets/img/icon_woman.png" runat="server" /></i>
+                                2540125850 - Findy Febrianne
+                            </li>
+                            <li>
+                                <i><asp:Image CssClass="fa fa-phone fa-fw" ID="Image1" ImageUrl="../assets/img/icon_woman.png" runat="server" /></i>
+                                2540126891 - Calista Vannia Nathalie
+                            </li>
+                            <li>
+                                <i><asp:Image CssClass="fa fa-phone fa-fw" ID="Image3" ImageUrl="../assets/img/icon_man.png" runat="server" /></i>
+                                2540126216 - Juan Wira Lukmarda
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li><a><asp:LinkButton CssClass="text-decoration-none" ID="homeFooter" runat="server" OnClick="home_Click">Home</asp:LinkButton></a></li>
+                            <li><a><asp:LinkButton CssClass="text-decoration-none" ID="aboutFooter" runat="server" OnClick="about_Click">About</asp:LinkButton></a></li>
+                            <li><a><asp:LinkButton CssClass="text-decoration-none" ID="privNpol" runat="server" OnClick="privNpol_Click">Privacy & Policy</asp:LinkButton></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left copy">
+                           &copy  Copyright Lotz 2023
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </footer>
+    </form>
+</body>
+
+</html>
